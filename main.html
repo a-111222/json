@@ -1,0 +1,93 @@
+<!--
+    /*************************JSON**********************************/
+1- jsonparse()--------- is a js function to convert js object to a text 
+2- XMLHttpRequest ----- using to get data from the server ("or JSON file")
+3- JSON.stringify()----  method converts a JavaScript object to string   
+4- getJson()-----------  method Load JSON data from the "server" using a GET HTTP request
+5- ajax()--------------  method an asynchronous HTTP (Ajax) request.
+-->
+
+
+
+<!--start document-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="./main.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div class="main">
+     <h1> JSON DATA GET BY Ajax</h1>
+ 
+    <div class="data-be-here">  </div>
+  </div>
+</body>
+
+
+    <!--start script -->
+<script>
+
+  //first example when i click i will show a content //
+  $.ajax({
+    url:"data.json",
+    success: function(data , status){
+      var final = "";
+      $.each(data,function(key,value){
+
+        final+='<tr> </tr>';
+        final+='<td>' + value.name + '</td>';
+        final+='<td>' + value.age + '</td>';
+        final+='<td>' + value.city + '</td>';
+        final+='<tr> </tr>';
+      });
+      $(".data-be-here").append(final);
+    }
+  });
+
+
+
+// first way to get data from json file by AJAX with built-in js function //
+/*function getWelcome(){
+			var ajaxRequest = new XMLHttpRequest();
+			ajaxRequest.onreadystatechange = function(){
+				if(this.readyState == 4 && this.status == 200){
+          var ajaxRequest = JSON.parse(this.responseText);
+          myText = "";
+          for (var i = 0; i < ajaxRequest.length; i++){
+            myText= myText+ajaxRequest[i].name+"<br>";
+          }
+					//the request is completed, now check its status
+						document.getElementById("scound").innerHTML = myText;
+			}
+    };
+			ajaxRequest.open('GET', 'data.json',true);
+			ajaxRequest.send();
+		}*/
+
+
+
+
+
+//second way to get data from json file by AJAX with JQUERY //
+  /*$.ajax({
+    url:"data.json",
+    success: function(data , status){
+      $.each(data,function(index){
+        $(".data-be-here").append('<div>' + data[index].name + '</div>');
+      });
+    }
+  });*/
+
+
+</script>  
+     
+    <!--End script -->
+
+</body>
+
+</html>
