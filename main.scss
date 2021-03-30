@@ -1,0 +1,30 @@
+$color:red;
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+
+}
+.main{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0px ;
+    tr{
+        width:100%;
+    }
+    td{
+        width: 30%;
+    }
+    }
+    .data-be-here{
+    background: #09090f; 
+    color: #FFF;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    line-height: 68px;
+    padding: 0 3%;
+    display: inline-table;
+
+    }
